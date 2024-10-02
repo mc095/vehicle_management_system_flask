@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .greeting {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 80px;
+        }
+
+        .message {
+            font-size: 18px;
+            color: green; /* Color for success message */
+            margin-top: 20px;
+        }
+
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .logout:hover {
+            background-color: #e60000;
+        }
+
+        .anchors {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column; 
+            gap: 15px; 
+        }
+
+        .anchors a {
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        
+        header {
+            background-color: #333; 
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for depth */
+        }
+    </style>
+</head>
+<header>
+    <h1>Vehicle Management System</h1>
+</header>
+<body>
+    <a href="/logout" class="logout">Logout</a>
+    
+    <div class="container">
+        <div class="greeting">Hello, {{ user_name }}!</div>
+        
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        
+        <div class="anchors">
+            <a href="{{ url_for('add_vehicle') }}">Add Vehicle</a>
+            <a href="{{ url_for('view_vehicles') }}">View Vehicles</a>
+            <a href="{{ url_for('search_route') }}">Search Route</a>
+            <a href="{{ url_for('display_vehicle') }}">Display Vehicle</a>
+        </div>
+    </div>
+</body>
+</html>

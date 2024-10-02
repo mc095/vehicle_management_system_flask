@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Vehicle</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 50px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .logout:hover {
+            background-color: #e60000;
+        }
+
+        header {
+            background-color: #333; 
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .vehicle-details {
+            margin-top: 20px;
+            display: none; /* Hide by default */
+        }
+
+        .vehicle-details.visible {
+            display: block; /* Show when vehicle data is present */
+        }
+
+        table {
+            border-collapse: collapse;
+            margin: 20px auto; /* Center the table */
+            width: 80%; /* Adjust width as necessary */
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left; /* Align text to the left */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Light background for header */
+        }
+    </style>
+</head>
+<header>
+    <h1>Vehicle Management System</h1>
+</header>
+<body>
+    <a href="/logout" class="logout">Logout</a>
+    <div class="container">
+        <h2>Display Vehicle</h2>
+        <form action="/display_vehicle" method="post">
+            <label for="licenseNumber">Enter License Number:</label>
+            <input type="text" id="licenseNumber" name="licenseNumber" required>
+            <input type="submit" value="Search">
+        </form>
+
+        {% if vehicle %}
+        <div class="vehicle-details visible">
+            <h3>Vehicle Details</h3>
+            <table>
+                <tr>
+                    <th>Vehicle ID</th>
+                    <td>{{ vehicle['vehicleID'] }}</td>
+                </tr>
+                <tr>
+                    <th>Vehicle Name</th>
+                    <td>{{ vehicle['vehicleName'] }}</td>
+                </tr>
+                <tr>
+                    <th>Vehicle Type</th>
+                    <td>{{ vehicle['vehicleType'] }}</td>
+                </tr>
+                <tr>
+                    <th>License Number</th>
+                    <td>{{ vehicle['licenseNumber'] }}</td>
+                </tr>
+                <tr>
+                    <th>Seating Capacity</th>
+                    <td>{{ vehicle['seatingCapacity'] }}</td>
+                </tr>
+                <tr>
+                    <th>Purchase Date</th>
+                    <td>{{ vehicle['purchaseDate'] }}</td>
+                </tr>
+            </table>
+        </div>
+        {% else %}
+        <div class="vehicle-details">
+            <p>No vehicle found.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

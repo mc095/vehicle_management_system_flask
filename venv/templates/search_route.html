@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Route</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333; 
+            color: white;
+            width: 100%;
+            text-align: center;
+            padding: 15px 0; 
+            position: fixed; 
+            top: 0; 
+            left: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto; /* Margin to account for the fixed header */
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #ff4d4d;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .logout:hover {
+            background-color: #e60000;
+        }
+    </style>
+</head>
+<header>
+    <h1>Vehicle Management System</h1>
+</header>
+<body>
+    <a href="/logout" class="logout">Logout</a>
+    <div class="container">
+        <h2>Search Route</h2>
+        <p>Welcome, {{ user_name }}!</p>
+        <p>Your city: {{ city }}</p>
+
+        <form action="/search_route" method="post">
+            <label for="startLocation">Start Location:</label>
+            <input type="text" id="startLocation" name="startLocation" required>
+            
+            <label for="endLocation">End Location:</label>
+            <input type="text" id="endLocation" name="endLocation" required>
+            
+            <input type="submit" value="Search">
+        </form>
+    </div>
+</body>
+</html>

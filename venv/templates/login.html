@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Vehicle Management System</h1>
+    </header>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            <label for="userID">User ID:</label>
+            <input type="text" id="userID" name="userID" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <div class="buttons">
+                <input type="submit" value="Login">
+                <input type="reset" value="Clear">
+            </div>
+            
+            <p><a href="/register">Register a new user</a></p>
+        </form>
+    </div>
+</body>
+</html>

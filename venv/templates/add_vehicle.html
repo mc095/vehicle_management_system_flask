@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Vehicle</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Vehicle Management System</h1>
+    </header>
+    <div class="login-container">
+        <h2>Add Vehicle</h2>
+        <form action="/add_vehicle" method="post">
+            
+            <label for="vehicleName">Vehicle Name:</label>
+            <input type="text" id="vehicleName" name="vehicleName" required>
+            
+            <label for="vehicleType">Vehicle Type:</label>
+            <input type="text" id="vehicleType" name="vehicleType" required>
+            
+            <label for="licenseNumber">License Number:</label>
+            <input type="text" id="licenseNumber" name="licenseNumber" required>
+            
+            <label for="seatingCapacity">Seating Capacity:</label>
+            <input type="number" id="seatingCapacity" name="seatingCapacity" required>
+            
+            <label for="purchaseDate">Purchase Date:</label>
+            <input type="date" id="purchaseDate" name="purchaseDate" required>
+            
+            <div class="buttons">
+                <input type="submit" value="Add Vehicle">
+                <input type="reset" value="Clear">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+    
